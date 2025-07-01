@@ -1,16 +1,20 @@
 function sillycase(silly) {
-  
-    let sillyLength = silly.length;
 
-    let sillyLengthHalftRound = Math.ceil(sillyLength / 2);
+    let sillyLengthHalftRound = Math.ceil(silly.length / 2);
 
     let sillyDivided = silly.split(/(\w)/).filter(letter => letter.match(/(\w)/));
 
-    let firstHalft;
+    let result = "";
 
-    console.log(typeof (sillyDivided[0]))
+    for (let i = 0; i < sillyLengthHalftRound; i++) {
+        result += sillyDivided[i].toLowerCase();
+    }
 
-    return sillyDivided;
+    for (let k = sillyLengthHalftRound; k < sillyDivided.length; k++) {
+        result += sillyDivided[k].toUpperCase();
+    }
+
+    return result;
 }
 
-console.log(sillycase("brian"));
+sillycase("brian");
